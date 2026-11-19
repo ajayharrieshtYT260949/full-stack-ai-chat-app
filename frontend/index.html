@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b1020">
+    <title>AI Chat Workspace</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="shell">
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">✦</div>
+                <div>
+                    <b>Chat Workspace</b>
+                    <small>AI assistant powered by Qwen</small>
+                </div>
+            </div>
+
+            <button id="new-session" class="new-button" type="button">
+                <span>＋</span> New chat
+            </button>
+
+            <div class="conversation-heading">
+                <span>CONVERSATIONS</span>
+                <button id="refresh-sessions" class="icon-button" type="button"
+                        title="Refresh conversations" aria-label="Refresh conversations">
+                    ↻
+                </button>
+            </div>
+
+            <div id="session-list" class="session-list">
+                <p class="sidebar-empty">Your conversations will appear here.</p>
+            </div>
+
+            <div class="settings">
+                <label for="api-key">Application API key</label>
+                <input
+                    id="api-key"
+                    type="password"
+                    placeholder="Enter your API key"
+                    autocomplete="off"
+                >
+                <button id="save-key" type="button">Save API key</button>
+                <small>Stored in this browser only.</small>
+            </div>
+        </aside>
+
+        <main class="main">
+            <header class="topbar">
+                <div class="assistant-heading">
+                    <span class="status-dot"></span>
+                    <span>AI assistant</span>
+                </div>
+                <div id="usage" class="usage">No usage yet</div>
+            </header>
+
+            <section id="messages" class="messages" aria-live="polite">
+                <div class="welcome" id="welcome">
+                    <div class="welcome-icon">✦</div>
+                    <h1>What would you like to explore?</h1>
+                    <p>Start a conversation with your AI assistant.</p>
+                </div>
+            </section>
+
+            <div id="notice" class="notice" role="status" aria-live="polite"></div>
+
+            <form id="chat-form" class="chat-form">
+                <textarea
+                    id="message"
+                    placeholder="Message your assistant..."
+                    rows="2"
+                    maxlength="20000"
+                    required
+                    aria-label="Your message"
+                ></textarea>
+
+                <div class="composer-footer">
+                    <small>Enter to send · Shift + Enter for a new line</small>
+                    <button id="send" type="submit">
+                        <span id="send-label">Send</span>
+                        <span aria-hidden="true">↑</span>
+                    </button>
+                </div>
+            </form>
+
+            <footer>
+                AI can make mistakes. Check important information.
+            </footer>
+        </main>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
